@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { AggrementRoutingModule } from './aggrement-routing.module';
 import { AggrementComponent } from './aggrement.component';
 import { UpdateAggreComponent } from './update-aggre/update-aggre.component';
@@ -17,7 +17,8 @@ import { CreateAggreComponent } from './create-aggre/create-aggre.component';
   ],
   imports: [
     CommonModule,
-    AggrementRoutingModule
+    AggrementRoutingModule,
+    SharedModuleModule
   ]
 })
 export class AggrementModule { }

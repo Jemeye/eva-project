@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { SharedModuleModule } from './shared-module/shared-module.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
-import { ControlSidebarComponent } from './components/control-sidebar/control-sidebar.component';
+
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
@@ -17,16 +13,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AppComponent,
     LoginComponent,
     LayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    ContentWrapperComponent,
-    ControlSidebarComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

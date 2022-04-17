@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { TestRoutingModule } from './test-routing.module';
 import { TestComponent } from './test.component';
 import { DoTestComponent } from './do-test/do-test.component';
@@ -17,7 +17,8 @@ import { ViewTestComponent } from './view-test/view-test.component';
   ],
   imports: [
     CommonModule,
-    TestRoutingModule
+    TestRoutingModule,
+    SharedModuleModule
   ]
 })
 export class TestModule { }

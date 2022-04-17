@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 import { SchoolRoutingModule } from './school-routing.module';
 import { SchoolComponent } from './school.component';
@@ -17,7 +18,8 @@ import { ReadSchoolComponent } from './read-school/read-school.component';
   ],
   imports: [
     CommonModule,
-    SchoolRoutingModule
+    SchoolRoutingModule,
+    SharedModuleModule
   ]
 })
 export class SchoolModule { }
