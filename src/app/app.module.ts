@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { ControlSidebarComponent } from './components/control-sidebar/control-sidebar.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ControlSidebarComponent } from './components/control-sidebar/control-si
     FooterComponent,
     SidebarComponent,
     ContentWrapperComponent,
-    ControlSidebarComponent
+    ControlSidebarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
