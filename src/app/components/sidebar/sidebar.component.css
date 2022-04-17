@@ -1,0 +1,35 @@
+.elevation-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22)!important;
+}
+[class*=sidebar-dark-] {
+  background-color: #0067a9;
+}
+.main-sidebar {
+  height: 100vh;
+  overflow-y: hidden;
+  z-index: 1038;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+p {
+  color: white;
+}
+
+i {
+  color: white;
+}
+
+span{
+  color: white;
+}

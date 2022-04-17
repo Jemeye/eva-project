@@ -1,7 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivityComponent } from './activity.component';
+import { CreateActivityComponent } from './create-activity/create-activity.component';
+import { ReadActivityComponent } from './read-activity/read-activity.component';
+import { UpdateActivityComponent } from './update-activity/update-activity.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+  path: '',
+  component: ActivityComponent,
+  children: [
+    {
+      path: '',
+      redirectTo: 'read',
+      pathMatch: 'full'
+    },
+    {
+      path: 'create',
+      component: CreateActivityComponent
+    },
+    {
+      path: 'read',
+      component:ReadActivityComponent
+    },
+    {
+      path: 'update',
+      component: UpdateActivityComponent
+    }
+  ]
+}
+
+];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
