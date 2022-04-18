@@ -6,6 +6,9 @@ import { ActivityComponent } from './activity.component';
 import { ReadActivityComponent } from './read-activity/read-activity.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
 import { UpdateActivityComponent } from './update-activity/update-activity.component';
+import  { NgxPaginationModule }  from  'ngx-pagination'
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteActivityComponent } from './delete-activity/delete-activity.component' ;'@material/button';
 
 
 @NgModule({
@@ -13,12 +16,15 @@ import { UpdateActivityComponent } from './update-activity/update-activity.compo
     ActivityComponent,
     ReadActivityComponent,
     CreateActivityComponent,
-    UpdateActivityComponent
+    UpdateActivityComponent,
+    DeleteActivityComponent
   ],
   imports: [
     CommonModule,
     ActivityRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    NgxPaginationModule,
+    MatDialogModule
   ]
 })
 export class ActivityModule { }
