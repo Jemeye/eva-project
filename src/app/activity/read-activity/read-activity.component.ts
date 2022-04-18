@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Activity } from 'src/app/models/activity.model';
-import { DeleteActivityComponent } from '../delete-activity/delete-activity.component';
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-read-activity',
@@ -11,6 +11,7 @@ import { DeleteActivityComponent } from '../delete-activity/delete-activity.comp
 export class ReadActivityComponent implements OnInit {
 
   public page: number =0;
+  modalSwitch: boolean = false;
 
   activities: Activity[] = [
     {
@@ -76,14 +77,18 @@ export class ReadActivityComponent implements OnInit {
   ]
 
   constructor(
-    public dialog: MatDialog
+
   ) { }
 
   ngOnInit(): void {
   }
 
   delete(){
-    const dialogRef = this.dialog.open(DeleteActivityComponent)
+    var r = confirm("¿Seguro que desea eliminar esta actividad extracurricular?");
+    if (r == true) {
+        alert("\'codgio de vuelta\'");
+        //llamar al http
+    }
   }
 
 }

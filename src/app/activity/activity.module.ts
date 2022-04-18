@@ -8,7 +8,6 @@ import { CreateActivityComponent } from './create-activity/create-activity.compo
 import { UpdateActivityComponent } from './update-activity/update-activity.component';
 import  { NgxPaginationModule }  from  'ngx-pagination'
 import {MatDialogModule} from '@angular/material/dialog';
-import { DeleteActivityComponent } from './delete-activity/delete-activity.component' ;'@material/button';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { DeleteActivityComponent } from './delete-activity/delete-activity.compo
     ReadActivityComponent,
     CreateActivityComponent,
     UpdateActivityComponent,
-    DeleteActivityComponent
   ],
   imports: [
     CommonModule,

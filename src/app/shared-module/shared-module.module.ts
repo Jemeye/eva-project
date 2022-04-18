@@ -7,6 +7,7 @@ import { ContentWrapperComponent } from './content-wrapper/content-wrapper.compo
 import { ControlSidebarComponent } from './control-sidebar/control-sidebar.component';
 import { RouterModule } from '@angular/router'
 import {MatDialogModule } from '@angular/material/dialog' ;'@material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatDialogModule } from '@angular/material/dialog' ;'@material/button';
   imports: [
     RouterModule,
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -28,7 +30,8 @@ import {MatDialogModule } from '@angular/material/dialog' ;'@material/button';
     SidebarComponent,
     ContentWrapperComponent,
     ControlSidebarComponent,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModuleModule { }
