@@ -6,6 +6,7 @@ import { StudentComponent } from './student.component';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { ReadStudentComponent } from './read-student/read-student.component';
+import  { NgxPaginationModule }  from  'ngx-pagination'
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReadStudentComponent } from './read-student/read-student.component';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    NgxPaginationModule
   ]
 })
 export class StudentModule { }

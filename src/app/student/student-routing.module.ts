@@ -4,6 +4,7 @@ import { UpdateSchoolComponent } from '../school/update-school/update-school.com
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { ReadStudentComponent } from './read-student/read-student.component';
 import { StudentComponent } from './student.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'update',
-        component: UpdateSchoolComponent
+        component: UpdateStudentComponent
       }
     ]
   }
