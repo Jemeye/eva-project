@@ -7,7 +7,7 @@ export interface Activity {
   schedule? : string;
   area?: Area;
   subarea?: Subarea;
-  maximStudents: number;
-  resources: string[];
+  maximStudents?: number;
+  resources?: string[];
   images: string;
 }
