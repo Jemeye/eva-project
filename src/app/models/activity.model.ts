@@ -1,6 +1,13 @@
-
+import {Area} from './area.model';
+import {Subarea} from './subarea.model';
 export interface Activity {
-  title: string;
-  images: string;
+  id?: string ;
+  name: string;
   description: string;
+  schedule? : string;
+  area?: Area;
+  subarea?: Subarea;
+  maximStudents: number;
+  resources: string[];
+  images: string;
 }
