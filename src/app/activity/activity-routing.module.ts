@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivityComponent } from './activity.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
+import { DetailActivityComponent } from './detail-activity/detail-activity.component';
 import { ReadActivityComponent } from './read-activity/read-activity.component';
 import { UpdateActivityComponent } from './update-activity/update-activity.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
       path: 'update',
       component: UpdateActivityComponent
+    },
+    {
+      path: 'detail',
+      component: DetailActivityComponent
     }
   ]
 }

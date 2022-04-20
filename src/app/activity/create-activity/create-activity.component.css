@@ -59,6 +59,10 @@ textarea:focus {
   color: #fff !important
 }
 
+.btn-block:disabled {
+  background-color: #ccc;
+}
+
 button:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;

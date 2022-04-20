@@ -12,36 +12,40 @@
                 <input type="text" id="fname" name="fname" formControlName="name">
               </div>
               <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Dirección
+                <label class="form-control-label px-3">Máximo de estudiantes
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="text" id="fname" name="fname" formControlName="cost">
+                <input type="number" id="fmaxim" name="fmaxim" formControlName="maximStudents">
               </div>
             </div>
             <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Recursos
-                  <span class="text-danger"> *</span>
-                </label>
-                <textarea type="text" id="lname" name="lname" formControlName="resources"></textarea>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Recursos
+                    <span class="text-danger"> *</span>
+                  </label>
+                  <textarea type="text" id="fresources" name="fresources" formControlName="resources"></textarea>
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Descripción
+                    <span class="text-danger"> *</span>
+                  </label>
+                  <textarea type="text" id="fdescription" name="fdescription" formControlName="description"></textarea>
+                </div>
               </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Descripción
-                  <span class="text-danger"> *</span>
-                </label>
-                <textarea type="text" id="lname" name="lname" formControlName="description"></textarea>
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Costo
-                  <span class="text-danger"> *</span>
-                </label>
-                <input type="number" id="fname" name="fname" formControlName="cost">
-              </div>
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Horario
+                    <span class="text-danger"> *</span>
+                  </label>
+                  <select formControlName="schedule">
+                    <option *ngFor="let hour of schedule" [value]="hour">{{hour}}</option>
+                  </select>
+                </div>
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">Imagen
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="file" accept="image/*" formControlName="images">
+                <input type="file" accept="image/*" name="image" class="image" formControlName="images">
               </div>
             </div>
             <div class="row justify-content-between text-left">
@@ -49,63 +53,26 @@
                 <label class="form-control-label px-3"> Área del conocimiento
                   <span class="text-danger"> *</span>
                 </label>
-                <select formControlName="area">
-                  <option value="Mañana">Mañana</option>
-                  <option value="Tarde">Tarde</option>
-                  <option value="Noche">Noche</option>
+                <select formControlName="area" (change)="subarea($event)">
+                  <option *ngFor="let area of areas" [value]="area.name">{{area.name}}</option>
                 </select>
               </div>
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">Subárea del conocimiento
                   <span class="text-danger"> *</span></label>
                   <select formControlName="subarea">
-                   <option value="">Mañana</option>
-                   <option value="">Tarde</option>
-                   <option value="">Noche</option>
+                   <option *ngFor="let sub of choseArea.subareas" [value]="sub">{{sub}}</option>
                  </select>
                </div>
               </div>
             <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Frecuencia
-                  <span class="text-danger"> *</span>
-                </label>
-                <select formControlName="frequency">
-                  <option value="">Mañana</option>
-                  <option value="">Tarde</option>
-                  <option value="">Noche</option>
-                </select>
-              </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Temporada
-                  <span class="text-danger"> *</span>
-                </label>
-                <select formControlName="season">
-                  <option value="">Mañana</option>
-                  <option value="">Tarde</option>
-                  <option value="">Noche</option>
-                </select>
-              </div>
             </div>
             <div class="row justify-content-end text-left">
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Horario
-                  <span class="text-danger"> *</span>
-                </label>
-                <select formControlName="schedule">
-                  <option value="">Mañana</option>
-                  <option value="">Tarde</option>
-                  <option value="">Noche</option>
-                </select>
-              </div>
-              <div class="form-group col-sm-6"> <button type="submit" [disabled]="formCreate.valid"  class="btn-block">AGREGAR</button> </div>
+              <div class="form-group col-sm-3"> <button type="submit" [disabled]="formCreate.invalid"  class="btn-block">AGREGAR</button> </div>
+              <div class="form-group col-sm-3"> <button type="submit" (click)="back()"  class="btn-block" style="background-color: red;">CANCELAR</button> </div>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-
-<div>
-  valido: {{formCreate.valid | json}}
-</div>
