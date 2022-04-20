@@ -6,7 +6,8 @@ import { AggrementComponent } from './aggrement.component';
 import { UpdateAggreComponent } from './update-aggre/update-aggre.component';
 import { ReadAggreComponent } from './read-aggre/read-aggre.component';
 import { CreateAggreComponent } from './create-aggre/create-aggre.component';
-import  { NgxPaginationModule }  from  'ngx-pagination'
+import  { NgxPaginationModule }  from  'ngx-pagination';
+import { DetailAggreComponent } from './detail-aggre/detail-aggre.component'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import  { NgxPaginationModule }  from  'ngx-pagination'
     AggrementComponent,
     UpdateAggreComponent,
     ReadAggreComponent,
-    CreateAggreComponent
+    CreateAggreComponent,
+    DetailAggreComponent
   ],
   imports: [
     CommonModule,

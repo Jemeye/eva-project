@@ -10,7 +10,7 @@
 <!-- /.content-header -->
 
 
-<button [routerLink]="['/eactivity/create']" class="btn-agg">AGREGAR<i class="fas fa-plus"></i></button>
+<button [routerLink]="['/aggrement/create']" class="btn-agg">AGREGAR<i class="fas fa-plus"></i></button>
   <div class="activity--grid">
     <div class="row">
   <!-- Gallery item -->
@@ -20,7 +20,7 @@
             <h5> <a href="#" class="text-dark">{{activity.name}}</a></h5>
             <p class="small text-muted mb-0">{{activity.description}}</p>
             <div class="d-flex align-items-center justify-content-between rounded-pill px-3 py-2 mt-4">
-              <button [routerLink]="['/aggrement/read']" class="button-info"><i class="fas fa-eye"></i></button>
+              <button [routerLink]="['/aggrement/detail']" class="button-info"><i class="fas fa-eye"></i></button>
               <button [routerLink]="['/aggrement/update']" class="button-edit"><i class="fas fa-pen"></i></button>
               <button (click)="delete()" class="button-delete"><i class="fas fa-trash"></i></button>
             </div>

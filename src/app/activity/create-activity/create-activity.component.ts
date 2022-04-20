@@ -16,15 +16,23 @@ export class CreateActivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.formCreate= this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      terms: ['', [Validators.required, Validators.requiredTrue]]
+      name: ['',],
+      description: ['', [Validators.required]],
+      schedule: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      area: ['', [Validators.required]],
+      subarea: ['', [Validators.required]],
+      cost: ['', [Validators.required]],
+      resources: ['', [Validators.required]],
+      frequency: ['', [Validators.required]],
+      season: ['', [Validators.required]],
+      images: ['', [Validators.required]],
     });
 //precargar los datos
-    this.loadForm();
+    //this.loadForm();
   }
 
-  send(): any {
+  onSubmit(): any {
     console.log(this.formCreate.value)
   }
 

@@ -3,50 +3,109 @@
       <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
         <h3>ACTIVIDAD EXTRACURRICULAR</h3>
         <div class="card">
-          <form class="form-card" onsubmit="event.preventDefault()">
+          <form [formGroup]="formCreate" class="form-card" (ngSubmit)="onSubmit()">
             <div class="row justify-content-between text-left">
               <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Título
+                <label class="form-control-label px-3">Nombre
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="text" id="fname" name="fname"
-                  placeholder="Enter your first name" onblur="validate(1)">
-                </div>
+                <input type="text" id="fname" name="fname" formControlName="name">
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Dirección
+                  <span class="text-danger"> *</span>
+                </label>
+                <input type="text" id="fname" name="fname" formControlName="cost">
+              </div>
+            </div>
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Recursos
+                  <span class="text-danger"> *</span>
+                </label>
+                <textarea type="text" id="lname" name="lname" formControlName="resources"></textarea>
+              </div>
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">Descripción
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="text" id="lname" name="lname"
-                  placeholder="Enter your last name" onblur="validate(2)">
-                 </div>
-            </div>
-            <div class="row justify-content-between text-left">
+                <textarea type="text" id="lname" name="lname" formControlName="description"></textarea>
+              </div>
               <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">Horario
+                <label class="form-control-label px-3">Costo
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="text" id="email" name="email"
-                  placeholder="" onblur="validate(3)"> </div>
+                <input type="number" id="fname" name="fname" formControlName="cost">
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Imagen
+                  <span class="text-danger"> *</span>
+                </label>
+                <input type="file" accept="image/*" formControlName="images">
+              </div>
+            </div>
+            <div class="row justify-content-between text-left">
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3"> Área del conocimiento
                   <span class="text-danger"> *</span>
                 </label>
-                <input type="text" id="mob" name="mob"
-                  placeholder="" onblur="validate(4)">
-                </div>
-            </div>
+                <select formControlName="area">
+                  <option value="Mañana">Mañana</option>
+                  <option value="Tarde">Tarde</option>
+                  <option value="Noche">Noche</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Subárea del conocimiento
+                  <span class="text-danger"> *</span></label>
+                  <select formControlName="subarea">
+                   <option value="">Mañana</option>
+                   <option value="">Tarde</option>
+                   <option value="">Noche</option>
+                 </select>
+               </div>
+              </div>
             <div class="row justify-content-between text-left">
               <div class="form-group col-sm-6 flex-column d-flex">
-                 <label class="form-control-label px-3">Sub-área
-                   <span class="text-danger"> *</span>
-                  </label> <input type="text" id="job" name="job" placeholder=""
-                  onblur="validate(5)"> </div>
+                <label class="form-control-label px-3">Frecuencia
+                  <span class="text-danger"> *</span>
+                </label>
+                <select formControlName="frequency">
+                  <option value="">Mañana</option>
+                  <option value="">Tarde</option>
+                  <option value="">Noche</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Temporada
+                  <span class="text-danger"> *</span>
+                </label>
+                <select formControlName="season">
+                  <option value="">Mañana</option>
+                  <option value="">Tarde</option>
+                  <option value="">Noche</option>
+                </select>
+              </div>
             </div>
-            <div class="row justify-content-end">
-              <div class="form-group col-sm-6"> <button type="submit" class="btn-block">AGREGAR</button> </div>
+            <div class="row justify-content-end text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Horario
+                  <span class="text-danger"> *</span>
+                </label>
+                <select formControlName="schedule">
+                  <option value="">Mañana</option>
+                  <option value="">Tarde</option>
+                  <option value="">Noche</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6"> <button type="submit" [disabled]="formCreate.valid"  class="btn-block">AGREGAR</button> </div>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+<div>
+  valido: {{formCreate.valid | json}}
+</div>

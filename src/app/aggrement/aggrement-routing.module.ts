@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AggrementComponent } from './aggrement.component';
 import { CreateAggreComponent } from './create-aggre/create-aggre.component';
+import { DetailAggreComponent } from './detail-aggre/detail-aggre.component';
 import { ReadAggreComponent } from './read-aggre/read-aggre.component';
 import { UpdateAggreComponent } from './update-aggre/update-aggre.component';
 
@@ -26,6 +27,11 @@ const routes: Routes = [
       {
         path: 'update',
         component: UpdateAggreComponent
+      }
+      ,
+      {
+        path: 'detail',
+        component: DetailAggreComponent
       }
     ]
   }
