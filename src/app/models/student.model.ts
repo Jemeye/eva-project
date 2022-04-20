@@ -1,8 +1,37 @@
-/**import {Area} from './area.model';
-import {Subarea} from './subarea.model';**/
+import {Area} from './area.model';
+import {School} from './school.model';
 export interface Student {
   id: string;
-  nombre: string;
-  curso: string;
-  grado: string;
+  name: string;
+  course: string;
+  grade: string;
+  genre: string;
+  diversity: boolean;
+  typeDiversity: string;
+  permanentDiversity: boolean;
+  preferArea: Area;
+  preferTopicNotify:string;
+  preferMethodNotify:string;
+  preferHourNotify: string;
+  preferSeasonActivity:string;
+  preferDaysActivity:string;
+  interestArea:Area;
+  interestClosedSpace:boolean;
+  interestTeamwork:boolean;
+  interestTheory:boolean;
+  interestMethodology:string;
+  personalityOutgoing:boolean;
+  personalityIntuitive:boolean;
+  personalityEmotional:boolean;
+  personalityQualifier:boolean;
+  personalityProfileVocational:string;
+  school:School;
+  address:string;
+  classSeason:string;
+  conveyance:string;
+  budget:number;
+  disciplineScore: number;
+  maximActivities: number;
+  limitReasonActivity:string;
+  digitalLiteracy:string;
 }
