@@ -54,7 +54,7 @@ public choseArea = {
 
   ngOnInit(): void {
     this.formUpdate= this.formBuilder.group({
-      name: ['',],
+      name: ['', Validators.required],
       description: ['', [Validators.required]],
       schedule: ['', [Validators.required]],
       location: ['', [Validators.required]],

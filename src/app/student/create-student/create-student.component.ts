@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-student',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateStudentComponent implements OnInit {
 
-  constructor() { }
+  public formCreate= new FormGroup({});
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
+
+    this.formCreate= this.formBuilder.group({
+      name: ['', Validators.required],
+      grade: ['', [Validators.required]],
+      course: ['', [Validators.required]],
+    });
+  }
+
+  onSubmit(): any {
+    console.log(this.formCreate.value)
+  }
+
+  loadForm(){
+    //aqui se carga el form
+    //this.form.patchValue() y ponerlo en el onInit
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

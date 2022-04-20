@@ -55,6 +55,10 @@ textarea:focus {
   color:white
 }
 
+.bn-disabled:disabled{
+  background-color: #ccc;
+}
+
 .btn-block:hover {
   color: #fff !important
 }
