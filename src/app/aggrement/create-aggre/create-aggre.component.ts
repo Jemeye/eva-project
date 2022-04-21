@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DTOCreateAggrenment } from 'src/app/models/aggrement.model';
+import { AggrementService } from 'src/app/services/aggrement.service';
 
 @Component({
   selector: 'app-create-aggre',
@@ -47,29 +49,50 @@ public choseArea = {
   public frequency = ['1 vez a la semana', '2 veces a la semana', '3 veces a la semana'];
   public schedule = ['mañana', 'tarde', 'noche'];
 
+  private dto : DTOCreateAggrenment = {
+      nombre : '',
+      descripcion : '',
+      horario  : '',
+      ubicacion  : '',
+      area: '',
+      subarea : '',
+      costo  : 0,
+      recursos : '',
+      frecuencia  : '',
+      temporada  : '',
+  }
+
   constructor(
     private formBuilder: FormBuilder,
     private location: Location,
+    private aggreService: AggrementService,
   ) { }
 
   ngOnInit(): void {
     this.formCreate= this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', [Validators.required]],
-      schedule: ['', [Validators.required]],
-      location: ['', [Validators.required]],
+      nombre: ['', Validators.required],
+      descripcion: ['', [Validators.required]],
+      horario: ['', [Validators.required]],
+      ubicacion: ['', [Validators.required]],
       area: ['', [Validators.required]],
       subarea: ['', [Validators.required]],
-      cost: ['', [Validators.required]],
-      resources: ['', [Validators.required]],
-      frequency: ['', [Validators.required]],
-      season: ['', [Validators.required]],
-      images: ['', [Validators.required]],
+      costo: ['', [Validators.required]],
+      recursos: ['', [Validators.required]],
+      frecuencia: ['', [Validators.required]],
+      temporada: ['', [Validators.required]],
+      //imagen: ['',],
     });
   }
 
   onSubmit(): any {
-    console.log(this.formCreate.value)
+    this.dto = this.formCreate.value;
+    console.log(this.dto)
+    this.aggreService.createAggrement(this.dto)
+    .subscribe(data => {
+      console.log(data)
+      alert('Convenio agregado correctamente')
+      window.location.reload();
+    });
   }
 
   subarea(dato: any){

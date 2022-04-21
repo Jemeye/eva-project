@@ -1,16 +1,26 @@
 import {Area} from './area.model';
 import {Subarea} from './subarea.model';
 export interface Aggrement {
-  id: string;
-  name: string;
-  description: string;
-  schedule: string;
-  location: string;
-  area: Area;
-  subarea:Subarea;
-  cost: number;
-  resources: string[];
-  frequency: string;
-  season: string;
-  images: string;
+  _id:{
+    $oid: ''
+  }
+  nombre: string;
+  descripcion: string;
+  horario: string;
+  ubicacion: string;
+  area: string;
+  subarea: string;
+  costo: number;
+  recursos: string;
+  frecuencia: string;
+  temporada: string;
+  imagen?: string;
+}
+
+export interface DTOAggrenment extends Omit<Aggrement, 'imagen'>{
+
+}
+
+export interface DTOCreateAggrenment extends Omit<Aggrement, '_id' |'imagen'>{
+
 }

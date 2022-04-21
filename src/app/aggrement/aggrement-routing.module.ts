@@ -25,12 +25,12 @@ const routes: Routes = [
         component: ReadAggreComponent
       },
       {
-        path: 'update',
+        path: 'update/:id',
         component: UpdateAggreComponent
       }
       ,
       {
-        path: 'detail',
+        path: 'detail/:id',
         component: DetailAggreComponent
       }
     ]
