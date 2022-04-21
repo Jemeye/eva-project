@@ -13,8 +13,9 @@ export class TestService {
   constructor(
     private http: HttpClient
   ) { }
-
-  getTest(){
+  getQuestionJson(){
+    return this.http.get<any>("assets/preguntas.json");
 
   }
+
 }
