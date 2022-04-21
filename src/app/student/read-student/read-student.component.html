@@ -26,9 +26,9 @@
           <tbody *ngFor="let activity of activities | paginate: { itemsPerPage: 7, currentPage: page }; let i = index">
             <tr>
               <td class="text-center">{{i}}</td>
-              <td>{{activity.name}}</td>
-              <td>{{activity.name}}</td>
-              <td class="text-right">{{activity.name}}</td>
+              <td>{{activity.nombre}}</td>
+              <td>{{activity.descripcion}}</td>
+              <td class="text-right">{{activity.recursos}}</td>
               <td class="td-actions text-right">
                 <button type="button" [routerLink]="['/student/update']" rel="tooltip" class="btn btn-success btn-just-icon">
                   <i class="fas fa-pen"></i>

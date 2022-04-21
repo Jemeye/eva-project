@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { DTOActivity } from 'src/app/models/activity.model';
+import { ActivityService } from 'src/app/services/activity.service';
 
 @Component({
   selector: 'app-create-activity',
@@ -45,28 +47,46 @@ public choseArea = {
 
   public schedule = ['mañana', 'tarde', 'noche'];
 
+  private dto : DTOActivity = {
+    nombre: '',
+    descripcion: '',
+    recursos: '',
+    horario: '',
+    cupos: 0,
+    area:'',
+    subarea: '',
+  }
+
   constructor(
     private formBuilder: FormBuilder,
-    private location: Location
+    private location: Location,
+    private activityService: ActivityService
   ) { }
 
   ngOnInit(): void {
     this.formCreate= this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', [Validators.required]],
-      schedule: ['', [Validators.required]],
+      nombre: ['', Validators.required],
+      descripcion: ['', [Validators.required]],
+      horario: ['', [Validators.required]],
       area: ['', [Validators.required]],
       subarea: ['', [Validators.required]],
-      maximStudents: ['', [Validators.required]],
-      resources: ['', [Validators.required]],
-      images: ['', [Validators.required]],
+      cupo: ['', [Validators.required]],
+      recursos: ['', [Validators.required]],
+      // images: ['', [Validators.required]],
     });
 //precargar los datos
     //this.loadForm();
   }
 
   onSubmit(): any {
+    this.dto = this.formCreate.value;
     console.log(this.formCreate.value)
+    this.activityService.createActivity(this.dto)
+    .subscribe( data => {
+      console.log(data)
+    }
+
+    )
   }
 
   //forma de cargar datos en el form

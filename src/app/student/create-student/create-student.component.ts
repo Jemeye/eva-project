@@ -13,7 +13,7 @@ export class CreateStudentComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
