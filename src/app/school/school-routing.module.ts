@@ -24,7 +24,7 @@ const routes: Routes = [
         component: ReadSchoolComponent
       },
       {
-        path: 'update',
+        path: 'update/:id',
         component: UpdateSchoolComponent
       }
     ]

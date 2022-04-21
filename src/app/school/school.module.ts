@@ -20,7 +20,8 @@ import { ReadSchoolComponent } from './read-school/read-school.component';
     CommonModule,
     SchoolRoutingModule,
     SharedModuleModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
   ]
 })
 export class SchoolModule { }

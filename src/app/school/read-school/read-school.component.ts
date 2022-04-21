@@ -1,5 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Activity } from 'src/app/models/activity.model';
+import { School } from 'src/app/models/school.model';
+import { SchoolService } from 'src/app/services/school.service';
 
 @Component({
   selector: 'app-read-school',
@@ -11,79 +14,33 @@ export class ReadSchoolComponent implements OnInit {
   public page: number =0;
   modalSwitch: boolean = false;
 
-  activities: Activity[] = [
-    {
-      name: 'primero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'segundo',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'tercero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'cuarto',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'primero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'segundo',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'tercero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'cuarto',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'primero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'segundo',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'tercero',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      name: 'cuarto',
-      images: 'https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-  ]
 
-  constructor() { }
+  public schools: School[] = [];
+
+  constructor(
+    private schoolService: SchoolService,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
+    this.schoolService.getAllSchool()
+    .subscribe(data =>{
+      this.schools = data;
+      console.log(this.schools);
+     });
   }
 
-  delete(){
+  delete(id: string){
     var r = confirm("¿Seguro que desea eliminar este convenio?");
     if (r == true) {
-        alert("\'codgio de vuelta\'");
-        //llamar al http
+        this.schoolService.deleteSchool(id)
+        .subscribe(data =>{
+          console.log(data)
+          alert("Institución educativa eliminada");
+        })
     }
+    window.location.reload();
   }
+
+
 }

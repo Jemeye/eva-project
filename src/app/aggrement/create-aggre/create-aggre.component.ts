@@ -49,7 +49,7 @@ public choseArea = {
 
   constructor(
     private formBuilder: FormBuilder,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {

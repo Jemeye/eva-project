@@ -1,33 +1,76 @@
 import {Area} from './area.model';
 import {Aggrement} from './aggrement.model';
 import {Activity} from './activity.model';
-export interface School {
-  id: string;
-  name: string;
-  location: string;
-  address: string;
-  preferNotifyArea: string;
-  preferNotifyResourse: string;
-  preferNotifyAggrement: string;
-  formResults: string;
-  nameSchoolHeadquarters: string;
-  locationSchoolHeadquarters: string;
-  aggrements: Aggrement[];
-  activities: Activity[];
-  areas: Area[];
-  outdoorActivities: string;
-  climate: string;
-  transportAccess: string;
-  humidity:string;
-  noise:string;
-  coexistenceManual:string;
-  maximActivities: number;
-  techAdaptationRooms:string;
-  technologicalResources:string;
-  TypeSpaces:string;
-  resources: string[];
 
-  schedule: string;
-  description: string;
-  images: string;
+export interface profileUserSchool{
+  notifyPrefer: string;
+  area : [{
+    area: string;
+    resources: string;
+    aggrement: string;
+  }];
+  result: string;
+}
+
+export interface profileContextSchool{
+
+  campusSchool: [{
+    name: string,
+    location: string
+  }]
+
+  campusAggre: [{
+    name: string,
+    location: string
+  }]
+
+  temporal: {
+    transport: string,
+    outdoorActivity: string
+  }
+
+  environment: {
+    transport: string,
+    weather: string,
+    humidity: string,
+    noise: string
+  }
+
+  social: {
+    transport: string,
+    outdoorActivity: string
+  }
+
+  rule: {
+    maxActivity: number;
+    manual: string
+  }
+
+  structure: {
+    resources: string,
+    typeSpace: string
+  }
+
+  tecnology: {
+    resources: string,
+    room: string
+  }
+}
+
+export interface School {
+  _id:{
+    $oid: ''
+  }
+  actividad_extracurricular?: any[];
+  convenio?: Aggrement[];
+  nombre: string;
+  ubicacion: string;
+  perfilUsuario?: profileUserSchool;
+  perfilContexto?: profileContextSchool;
+}
+
+
+export interface DTOSchool{
+  nombre: string;
+  ubicacion: string;
 }
